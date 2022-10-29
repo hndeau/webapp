@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "99c4b9ec1b8891ff787677276760beb6d6d4919c55660da1c713682156a6086c"
+            "sha256": "a26d65c48b5c6d61e5cf03bec919c2e8e52ac85781f3dda1f9f697ad25bf789e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,14 @@
             ],
             "index": "pypi",
             "version": "==4.1.2"
+        },
+        "django-s3-sqlite": {
+            "hashes": [
+                "sha256:4372846580f0f1d4b9030c89e16b5b11aec8cac58ef82c6d62be8817894d7a73",
+                "sha256:b0804112e2be4e0a92f665446bc416ac4a290b2131629c5022b32207a569faac"
+            ],
+            "index": "pypi",
+            "version": "==0.0.5"
         },
         "sqlparse": {
             "hashes": [
