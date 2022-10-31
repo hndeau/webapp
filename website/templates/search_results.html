@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<h1>Search Results</h1>
+
+<ul>
+    {% for city in object_list %}
+    <li>
+        {{ uploaded_media.name }}, {{ uploaded_media.file }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

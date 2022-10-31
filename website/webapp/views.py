@@ -1,15 +1,10 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
 from django.core.files.storage import FileSystemStorage
+from django.views.generic import TemplateView, ListView
 
 
 def home(request):
     return render(request, "home.html")
-
-
-def css_main(request):
-    return render(request, "css/main.css")
 
 
 def write_to_tmp(f, title):

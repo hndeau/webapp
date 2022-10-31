@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}WebApp{% endblock %}</title>
+    <meta charset="utf-8">
+    <title>{% block title %}WebApp{% endblock %}</title>
 </head>
 <body>
-  <main>
+<link rel="stylesheet" type="text/css" href="/templates/styles.css">
+<div class="navmenu">
+    <ul id=menu>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'upload' %}">Upload</a></li>
+
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">{{ user.username }}</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
+    </ul>
+</div>
+<main>
     {% block content %}
     {% endblock %}
-  </main>
+</main>
 </body>
 </html>

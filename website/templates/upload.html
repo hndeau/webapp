@@ -3,10 +3,14 @@
 {% block content %}
 
 <h2>Upload a file to the server!</h2>
+{% if user.is_authenticated %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="document">
     <button type="submit">Upload</button>
 </form>
+{% else %}
+<h3>You are not signed in!</h3>
+{% endif %}
 
 {% endblock %}
