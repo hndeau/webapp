@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 
 from .settings import MEDIA_ROOT
-from .views import home, file_upload
+from .views import home, file_upload, file_search
 from django.urls import path, include
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include("accounts.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path('upload/', file_upload, name='upload'),
+    path('search/', file_search, name='search'),
 ]
 urlpatterns += static('templates/', document_root='templates/')
 

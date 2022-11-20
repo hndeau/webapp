@@ -1,5 +1,7 @@
+import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import TemplateView, ListView
 
 
@@ -19,3 +21,14 @@ def file_upload(request):
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
     return render(request, 'upload.html')
+
+
+def file_search(request):
+    if request.method == 'POST':
+        query = request.POST['query']
+        result = None
+        if query:
+            result = os.popen("find . -name " + query).read().split()
+        return render(request, 'search.html', {'query': result})
+    else:
+        return render(request, 'search.html', {'query': None})

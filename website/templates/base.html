@@ -9,7 +9,11 @@
 <div class="navmenu">
     <ul id=menu>
         <li><a href="{% url 'home' %}">Home</a></li>
+
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'search' %}">File Search</a></li>
         <li><a href="{% url 'upload' %}">Upload</a></li>
+        {% endif %}
 
         {% if user.is_authenticated %}
         <li><a href="{% url 'logout' %}">{{ user.username }}</a></li>
