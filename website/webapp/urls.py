@@ -20,15 +20,14 @@ from django.conf import settings
 from .settings import MEDIA_ROOT
 from .views import home, file_upload
 from django.urls import path, include
+
 urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include("accounts.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path('upload/', file_upload, name='upload'),
-] + static('templates/', document_root='templates/')
+]
+urlpatterns += static('templates/', document_root='templates/')
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
-
-
+urlpatterns += static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
