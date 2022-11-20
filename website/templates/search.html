@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Media Search{% endblock %}
+
+{% block content %}
+
+    <h2>Search for media on the server!</h2>
+    {% if user.is_authenticated %}
+        <form method="post" enctype="multipart/form-data" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input type="text" name="query">
+            <button type="submit">Search</button>
+        </form>
+        {% if query %}
+            <ul>
+                {% for file  in query %}
+                    <li>{{ file }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% else %}
+        <h3>You are not signed in!</h3>
+    {% endif %}
+{% endblock %}
