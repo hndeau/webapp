@@ -1,8 +1,6 @@
 import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from django.views.decorators.csrf import csrf_protect
-from django.views.generic import TemplateView, ListView
 
 
 def home(request):
