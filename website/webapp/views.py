@@ -28,7 +28,7 @@ def file_search(request):
         query = request.POST['query']
         result = None
         if query:
-            result = os.popen("find . -name " + query).read().split()
+            result = os.popen("find . -name " + query).read().split()  # TODO implement library file search
         return render(request, 'search.html', {'query': result})
     else:
         return render(request, 'search.html', {'query': None})
