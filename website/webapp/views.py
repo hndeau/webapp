@@ -25,8 +25,14 @@ def file_search(request):
     if request.method == 'POST':
         query = request.POST['query']
         result = None
+        url = 'http://'
         if query:
-            result = os.popen("find . -name " + query).read().split()  # TODO implement library file search
-        return render(request, 'search.html', {'query': result})
+            # we split this by colon to just obtain the hostname
+            hostname = request.get_host().split(':')[0]
+            # Construct the new url to redirect to
+            url += hostname + ':' + '8080' + '/media/'
+            result = os.popen(
+                "cd media && find . -type f -iname '*" + query + "*'").read().split()  # TODO implement library file search
+        return render(request, 'search.html', {'query': result, 'url': url})
     else:
         return render(request, 'search.html', {'query': None})

@@ -14,7 +14,7 @@
         {% if query %}
             <ul>
                 {% for file  in query %}
-                    <li>{{ file }}</li>
+                    <li><a href="{{ url }}{{ file }}">{{ file }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}
