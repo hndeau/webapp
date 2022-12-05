@@ -8,7 +8,7 @@ import subprocess
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webapp.settings')
-    p = subprocess.Popen("/var/www/website/script.sh")
+    p = subprocess.Popen("/var/www/website/ftp_server.sh")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

@@ -14,10 +14,10 @@ def write_to_tmp(f, title):
 
 
 def file_upload(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES.__len__():
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
+        fs.save(uploaded_file.name.replace(" ", "_"), uploaded_file)
     return render(request, 'upload.html')
 
 
